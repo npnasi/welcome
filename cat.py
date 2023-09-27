@@ -4,3 +4,5 @@ print(' \. ". L_r\'')
 print('   `~\/')
 print('      |')
 print('      |')
+
+print('I\'m Cat')
