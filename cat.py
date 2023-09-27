@@ -5,4 +5,4 @@ print('   `~\/')
 print('      |')
 print('      |')
 
-print('I\'m Cat')
+print('I\'m Sprout')
