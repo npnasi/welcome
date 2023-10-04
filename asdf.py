@@ -4,18 +4,17 @@
 #command = sys.stdin.readline().rstrip()     #str
 
 import sys
-n = int(sys.stdin.readline())
-nums = [0,1,1,1,1,1,1,1,1,1]
+TRY = int(sys.stdin.readline())
 
-for i in range(n-1):
-    temp = [0]*10
-    temp[0] = nums[1]
-    temp[9] = nums[8]
+for T in range(TRY):
+    N = int(sys.stdin.readline())
+    table = [list(map(int, sys.stdin.readline().split())) for _ in range(2)]
+
+    if N>1:
+        table[0][1] += table[1][0]
+        table[1][1] += table[0][0]
+    for n in range(2,N):
+        table[0][n] += max(table[1][n-1],table[1][n-2])
+        table[1][n] += max(table[0][n-1],table[0][n-2])
     
-    for j in range(1,9):
-        temp[j] = nums[j-1]+nums[j+1]
-    
-    nums = temp
-
-print(sum(nums)%1000000000)
-
+    print(max(table[0][-1],table[1][-1]))
